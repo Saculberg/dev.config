@@ -24,3 +24,5 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.g.mapleader = " "
+
+vim.g.netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
