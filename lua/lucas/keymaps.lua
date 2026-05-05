@@ -20,3 +20,13 @@ vim.keymap.set("n", "<leader>Y", "\"+Y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- Pane splitting (tmux-style)
+vim.keymap.set("n", "<leader>%", "<cmd>vsplit<CR>")
+vim.keymap.set("n", '<leader>"', "<cmd>split<CR>")
+
+-- Pane navigation (tmux-style)
+vim.keymap.set("n", "<leader><Left>", "<C-w>h")
+vim.keymap.set("n", "<leader><Down>", "<C-w>j")
+vim.keymap.set("n", "<leader><Up>", "<C-w>k")
+vim.keymap.set("n", "<leader><Right>", "<C-w>l")

@@ -26,3 +26,9 @@ vim.opt.updatetime = 50
 vim.g.mapleader = " "
 
 vim.g.netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
+
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
+    pattern = "*",
+    command = "checktime",
+})
