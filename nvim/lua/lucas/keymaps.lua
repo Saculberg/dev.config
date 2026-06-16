@@ -47,3 +47,9 @@ vim.keymap.set("n", "<leader><M-Left>", "<C-w>2<")
 vim.keymap.set("n", "<leader><M-Down>", "<C-w>2-")
 vim.keymap.set("n", "<leader><M-Up>", "<C-w>2+")
 vim.keymap.set("n", "<leader><M-Right>", "<C-w>2>")
+
+
+vim.keymap.set('n', '<leader>f', function()
+  vim.lsp.buf.format({ async = true })
+end, { desc = 'Format buffer (LSP)' })
+
