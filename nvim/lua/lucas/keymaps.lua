@@ -53,3 +53,9 @@ vim.keymap.set('n', '<leader>f', function()
   vim.lsp.buf.format({ async = true })
 end, { desc = 'Format buffer (LSP)' })
 
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'netrw',
+  callback = function()
+    vim.keymap.set('n', '<leader><space>', '<CR>', { remap = true, buffer = true })
+  end,
+})
