@@ -286,3 +286,7 @@ fi
 if [[ -f "$HOME/.zshrc" ]] && ! grep -q "alias cat=batcat" "$HOME/.zshrc"; then
     echo "alias cat=batcat" >> "$HOME/.zshrc"
 fi
+
+if [[ -f "$HOME/.zshrc" ]] && ! grep -q "export EDITOR=nvim" "$HOME/.zshrc"; then
+    echo "export EDITOR=nvim" >> "$HOME/.zshrc"
+fi
