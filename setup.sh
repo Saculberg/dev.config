@@ -275,7 +275,7 @@ ln -sf "$REPO_LOCATION/.tmux.conf" "$HOME/.tmux.conf"
 
 if ! command -v bat >/dev/null 2>&1; then
     echo "installing batcat"
-    declare -A FZF_REPOS
+    declare -A BAT_REPOS
     BAT_REPOS[apt]="apt update && apt install bat"
     BAT_REPOS[apk]="apk add bat"
     BAT_REPOS[dnf]="dnf install -y bat"
