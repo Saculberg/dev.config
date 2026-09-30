@@ -177,7 +177,7 @@ if [[ "$ZSH" == "true" ]]; then
         RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     fi
 
-    for plugin in git docker; do
+    for plugin in git docker zsh-vi-mode ; do
         if grep -qE "^plugins=\(.*\b${plugin}\b.*\)" "$HOME/.zshrc"; then
             continue
         elif grep -qE "^plugins=\(" "$HOME/.zshrc"; then
@@ -271,3 +271,18 @@ fi
 echo "Linking tmux configuration"
 rm -rf "$HOME/.tmux.conf" >/dev/null 2>&1 || true
 ln -sf "$REPO_LOCATION/.tmux.conf" "$HOME/.tmux.conf"
+
+
+if ! command -v bat >/dev/null 2>&1; then
+    echo "installing batcat"
+    declare -A FZF_REPOS
+    BAT_REPOS[apt]="apt update && apt install bat"
+    BAT_REPOS[apk]="apk add bat"
+    BAT_REPOS[dnf]="dnf install -y bat"
+    BAT_REPOS[pacman]="pacman -S --noconfirm bat"
+    install_package "bat" BAT_REPOS
+fi
+
+if [[ -f "$HOME/.zshrc" ]] && ! grep -q "alias cat=batcat" "$HOME/.zshrc"; then
+    echo "alias cat=batcat" >> "$HOME/.zshrc"
+fi
